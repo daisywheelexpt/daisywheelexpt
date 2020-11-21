@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+
+<head>
+	<title>Daisywheel Input Test</title>
+	<link rel="stylesheet" type="text/css" href="css/daisywheel.min.css">
+	<link rel="stylesheet" type="text/css" href="css/testing.css">
+	<script src="js/Blob.js"></script>
+	<script src="js/FileSaver.js"></script>
+</head>
+<body>
+	<h1>Daisywheel Input Testing</h1>
+	<p>Please read all the following instructions and then begin the test:</p>
+	<ol>
+		<li>Select the text entry box below.</li>
+		<li>Move the analog stick to register the controller</li>
+		<li>
+			Use the Daisywheel input with your controller to type the sentence below.
+			<p><em id="sentence">the quick brown fox jumps over the lazy dog</em></p>
+		</li>
+		<li>Hit the <strong>Escape</strong> button on your keyboard when done</li>
+		<li>Wait for the results to calculate.</li>
+		<li>Repeat previous steps 5 times in total, producing 5 sets of results.</li>
+		<li>Hit <strong>Save Results</strong> below.</li>
+		<li>Attach the results to an email and send to: <a href="mailto:">whoever@wherever.com</a></li>
+	</ol>
+	<input id="test" class="daisywheel" placeholder="Click to start...">
+	<table id="results">
+		<tr>
+			<th>Time (s)</th><th>WPM</th><th>Errors</th>
+		</tr>
+	</table>
+	<button id="reset">Save Results</button>
+</body>
+
+<script src="js/daisywheel.min.js" ></script>
+<script src="js/testing.js" ></script>
+
+</html>
