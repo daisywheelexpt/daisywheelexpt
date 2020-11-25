@@ -68,5 +68,5 @@ function updateOutput() {
 
 $id("reset").onclick = function(e) {
 	var blob = new Blob([lines.join('\n')], {type: "text/plain;charset=utf-8"});
-	saveAs(blob, `${t.getFullYear()}-${t.getMonth() + 1}-${t.getDate()}-Daisywheel.txt`);
+	saveAs(blob, "daisy-test.csv");
 }
