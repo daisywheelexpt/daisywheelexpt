@@ -37,7 +37,7 @@ function updateOutput() {
 	table.appendChild(row);
 
 	// Log the time taken
-	time = (total/1000).toFixed(2) + " seconds";
+	time = (total/1000).toFixed(2);
 	addRowData(row, time);
 
 	// Log the wpm

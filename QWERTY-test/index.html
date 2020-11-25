@@ -29,6 +29,10 @@
     <script src="js/testing.js"></script>
     <script src="js/gamepad.js"></script>
     <link href="css/gamepad.css" rel="stylesheet">
+
+    <!-- Saving the data -->
+    <script src="js/Blob.js"></script>
+    <script src="js/FileSaver.js"></script>
   </head>
   <body>
     <div id="wrap">
@@ -44,31 +48,29 @@
             <li><strong>D-Pad</strong> - Can also be used to move selector.</li>
           </ul>
         </li>
-        <li><strong>Instructions</strong>
+        <li><strong>Please read all of the instructions before beginning the test:</strong>
             <ol>
-                <li>Click the <strong>Start</strong> button below. Your gamepad will control a highlighted selector on the virtual keyboard. (See Controls above.)</li>
+                <li>To begin, click the <strong>Start</strong> button below. Your gamepad will control a highlighted selector on the virtual keyboard. (See Controls above.)</li>
                 <li>
                     Type the following sentence using the gamepad:
                     <p id="sentence">the quick brown fox jumps over the lazy dog</p>
                 </li>
                 <li>Press <strong>Accept</strong> on the virtual keyboard.</li>
                 <li>Wait for the results to calculate below.</li>
-                <li>Take a screenshot of your results, or copy them to a text file.</li>
                 <li>Repeat process 5 times in total, producing 5 sets of results.</li>
+                <li>Click <strong>Save Results</strong> below to save the file <span class="mono">qwerty-test.csv</span> to your computer.</li>
+                <li>Attach the results to an email and send to: <a href="mailto:daisywheelexpt@gmail.com">daisywheelexpt@gmail.com</a> Please use the same email you provided on the questionairre.</li>
             </ol>
         </li>
-        <table id="results">
-            <tr>
-                <th>Time (s)</th><th>WPM</th><th>Errors</th>
-            </tr>
-            <tr>
-                <td id="timer"></td><td id="wpm"></td><td id="err"></td>
-            </tr>
-        </table>
-        <div class="nav">
+        <center>
             <button id="start" class="btn btn-default btn-xs" data-action="toggle">Start</button>
-            <button id="reset" class="btn btn-default btn-xs" data-action="">Reset Test</button>
-        </div>
+            <table id="results">
+                <tr>
+                    <th>Time (s)</th><th>WPM</th><th>Errors</th>
+                </tr>
+            </table>
+            <button id="reset" class="btn btn-default btn-xs" data-action="">Save Results</button>
+        </center>
     </div>
   </body>
 </html>

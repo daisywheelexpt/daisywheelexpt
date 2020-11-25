@@ -26,6 +26,7 @@ body {
   background: #fff;
   font-size: 10px;
   margin-top: 10px;
+  margin-bottom: 16em;
 }
 
 #wrap {
@@ -46,4 +47,16 @@ table {
 th, td {
   border: 1px solid lightgrey;
   padding: 0.5em;
+}
+
+ol > li {
+  margin: 0.3em 0;
+}
+
+.mono {
+  font-family: monospace;
+}
+
+center > * {
+  margin: 1em 0;
 }

@@ -10,6 +10,15 @@ t = 0;
 total = 0;
 errors = 0;
 
+function _id(id) { return document.getElementById(id); };
+
+function input_reset() {
+	$('#keyboard')[0].value = "";
+	$('.ui-keyboard-preview')[0].value = "";
+}
+
+lines = [];
+
 $(function() {
 	// mini navigation block
 	$('#info button').click(function() {
@@ -27,7 +36,7 @@ $(function() {
 		.keyboard({
 			alwaysOpen: true,
 			accepted: function() {
-				total = Date.now() - t;
+				total = Date.now() - t.getTime();
 				updateOutput();
 			}
 		})
@@ -38,22 +47,54 @@ $(function() {
 		});
 
 	$('button#start').click(function() {
-		t = Date.now();
-		console.log("Started!");
+		t = new Date();
 	});
 
 	$('button#reset').click(function() {
-		location.reload(); 
+		var blob = new Blob([lines.join('\n')], {type: "text/plain;charset=utf-8"});
+		saveAs(blob, "daisy-test.csv");
 	});
 });
 
+function addRowData(row, text) {
+	let data = document.createElement("td");
+	data.innerText = text;
+	row.appendChild(data);
+}
+
 function updateOutput() {
-	$('#timer').text((total/1000).toFixed(2));
-	$('#wpm').text((9 / (total/1000/60)).toFixed(1));
-	input_test = document.getElementById("keyboard")
-	for (var i = input_test.value.length - 1; i >= 0; i--) {
-		if (input_test.value[i] != $("#sentence").text()[i]) errors++;
-		else console.log("input_test.value[i] == sentence[i]")
+	var table = _id("results");
+
+	// Create the new row
+	let row = document.createElement("tr");
+	table.appendChild(row);
+
+	// Log the time taken
+	time = (total/1000).toFixed(2);
+	addRowData(row, time);
+
+	// Log the wpm
+	wpm = (9 / (total/1000/60)).toFixed(1);
+	addRowData(row, wpm);
+
+	// Determine the number of errors
+	sentence = $("#sentence").text();
+	console.log(sentence);
+	input_test = _id("keyboard");
+	input_str = input_test.value;
+
+	errors = 0;
+	for (var i = input_str.length - 1; i >= 0; i--) {
+		if (input_str[i] != sentence[i]) errors++;
 	}
-	$("#err").text(errors);
+	errors += Math.max(input_str.length, sentence.length) - Math.min(input_str.length, sentence.length);
+
+	// Log the number of errors
+	addRowData(row, errors);
+
+	// Add the data line for later export
+	lines.push([time, wpm, errors].join(','));
+
+	input_reset();
+	t = new Date();
 }

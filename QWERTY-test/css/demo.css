@@ -33,7 +33,7 @@ strips IDs from the input - ID's are supposed to be unique! */
 #info > ul ul strong { color: #fff; }
 #info div.nav { width: 280px; float: left; padding-top: 20px; }
 #info button {
-	width: 90px;
+	min-width: 90px;
 	height: 25px;
 	border: #555 1px solid;
 	border-radius: 5px;
