@@ -15,6 +15,7 @@ function _id(id) { return document.getElementById(id); };
 function input_reset() {
 	$('#keyboard')[0].value = "";
 	$('.ui-keyboard-preview')[0].value = "";
+	$('#keyboard').getkeyboard().reveal();
 }
 
 lines = [];
